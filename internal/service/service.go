@@ -1,6 +1,8 @@
 package service
 
 import (
+	"log"
+
 	"github.com/Yandex-Practicum/go1fl-sprint6-final/pkg/morse"
 )
 
@@ -16,8 +18,15 @@ func Convert(input string) string {
 			break
 		}
 	}
+	log.Printf("Input: %s, isMorse: %v", input, isMorse)
+
 	if isMorse {
-		return morse.ToText(input)
+		result := morse.ToText(input)
+		log.Printf("Converted to text: %s", result)
+		return result
 	}
-	return morse.ToMorse(input)
+
+	result := morse.ToMorse(input)
+	log.Printf("Converted to Morse: %s", result)
+	return result
 }
