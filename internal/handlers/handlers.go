@@ -11,13 +11,7 @@ import (
 )
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
-	absPath, err := filepath.Abs("./../index.html")
-	if err != nil {
-		http.Error(w, "error getting path"+err.Error(), http.StatusInternalServerError)
-		return
-	}
-	http.ServeFile(w, r, absPath)
-
+	http.ServeFile(w, r, "./index.html")
 }
 
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
