@@ -9,9 +9,10 @@ import (
 
 func main() {
 	logger := log.New(os.Stdout, "server: ", log.LstdFlags)
-	srv := server.NewRouter(logger)
-	logger.Printf("Server is running on: %s", srv.HTTPServer.Addr)
 
+	srv := server.NewRouter(logger)
+
+	logger.Printf("Server is running on: %s", srv.HTTPServer.Addr)
 	err := srv.HTTPServer.ListenAndServe()
 	if err != nil {
 		logger.Fatalf("Server error: %v", err)
