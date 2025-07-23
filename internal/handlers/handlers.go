@@ -45,7 +45,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "text/html")
 	w.WriteHeader(http.StatusOK)
-	_, err = w.Write([]byte("Complited. Result: \n" + convertedData))
+	_, err = w.Write([]byte(convertedData))
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
